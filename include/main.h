@@ -1,5 +1,5 @@
 //
-// Created by ç¥å¥‡bugåœ¨å“ªé‡Œ on 2023/6/4.
+// Created by ÉñÆæbugÔÚÄÄÀï on 2023/6/4.
 //
 
 #ifndef CPP_PROJECT_1_MAIN_H
@@ -17,8 +17,8 @@ using namespace std;
 class Biyou
 {
 public:
-    virtual void show() = 0;/*æ˜¾ç¤ºä¸ªäººä¿¡æ¯*/
-    virtual int Getage() = 0;/*è·å–å‘˜å·¥å¹´é¾„*/
+    virtual void show() = 0;/*ÏÔÊ¾¸öÈËĞÅÏ¢*/
+    virtual int Getage() = 0;/*»ñÈ¡Ô±¹¤ÄêÁä*/
     string name;
     string sex;
     string birthday;
@@ -32,27 +32,27 @@ typedef Biyou * newspace;
 class People:public Biyou
 {
 public:
-    People(string gname,string gsex,string gbirthday,string gemail,int gUID,int gcoin=100,int gage=0);/*æ„é€ å‡½æ•°*/
-    virtual void show();/*æ˜¾ç¤ºä¸ªäººä¿¡æ¯*/
-    virtual int Getage();/*è·å–å‘˜å·¥å¹´é¾„*/
+    People(string gname,string gsex,string gbirthday,string gemail,int gUID,int gcoin=100,int gage=0);/*¹¹Ôìº¯Êı*/
+    virtual void show();/*ÏÔÊ¾¸öÈËĞÅÏ¢*/
+    virtual int Getage();/*»ñÈ¡Ô±¹¤ÄêÁä*/
 };
 
 class Xitong
 {
 public:
     Xitong();
-    void Start();/*åˆå§‹åŒ–ç”¨æˆ·ä¿¡æ¯,å°†æ–‡ä»¶ä¸­çš„ä¿¡æ¯å†™å…¥*/
-    void Add();/*æ·»åŠ ç”¨æˆ·*/
-    void Output(newspace *address);/*è¾“å‡ºæˆå‘˜*/
-    void Output1();/*è¾“å‡ºå…¨éƒ¨æˆå‘˜*/
-    void Remove();/*åˆ é™¤ç”¨æˆ·*/
-    void Fix();/*ä¿®æ”¹ç¡¬å¸æ•°*/
-    void Sort();/*æ’åºç”¨æˆ·*/
-    void Wirtefile();/*å°†æ•°æ®å†™å…¥æ–‡ä»¶*/
-    void Exitsystem();/*é€€å‡ºç³»ç»Ÿ*/
+    void Start();/*³õÊ¼»¯ÓÃ»§ĞÅÏ¢,½«ÎÄ¼şÖĞµÄĞÅÏ¢Ğ´Èë*/
+    void Add();/*Ìí¼ÓÓÃ»§*/
+    void Output(newspace *address);/*Êä³ö³ÉÔ±*/
+    void Output1();/*Êä³öÈ«²¿³ÉÔ±*/
+    void Remove();/*É¾³ıÓÃ»§*/
+    void Fix();/*ĞŞ¸ÄÓ²±ÒÊı*/
+    void Sort();/*ÅÅĞòÓÃ»§*/
+    void Wirtefile();/*½«Êı¾İĞ´ÈëÎÄ¼ş*/
+    void Exitsystem();/*ÍË³öÏµÍ³*/
 public:
     newspace *classpointer;
     int number;
-    bool fileNULL;/*åˆ¤æ–­æ–‡ä»¶æ˜¯å¦ä¸ºç©º*/
+    bool fileNULL;/*ÅĞ¶ÏÎÄ¼şÊÇ·ñÎª¿Õ*/
 };
 #endif //CPP_PROJECT_1_MAIN_H
