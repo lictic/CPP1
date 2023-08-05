@@ -10,7 +10,7 @@
 #include <fstream>
 #include <ostream>
 #include <sstream>
-#define Filename "C:\\shiyan3\\CPP1\\src\\wenjian.txt"
+#define Filename "src\\wenjian.txt"
 using namespace std;
 
 

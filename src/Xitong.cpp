@@ -212,7 +212,3 @@ void Xitong::Wirtefile()/*将数据写入文件*/
     }
     fp.close();
 }
-void Xitong::Exitsystem()/*退出系统*/
-{
-    system("pause");
-}
