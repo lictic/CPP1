@@ -1,6 +1,6 @@
 #include "main.h"
 
-int Getnumber()/*è·å–æ–‡ä»¶ä¸­æˆå‘˜ä¸ªæ•°*/
+int Getnumber()/*»ñÈ¡ÎÄ¼şÖĞ³ÉÔ±¸öÊı*/
 {
     fstream fp;
     string a;
@@ -14,14 +14,14 @@ int Getnumber()/*è·å–æ–‡ä»¶ä¸­æˆå‘˜ä¸ªæ•°*/
     return num;
 }
 
-Xitong::Xitong()/*åˆ©ç”¨æ„é€ å‡½æ•°è¯»å–æ–‡ä»¶*/
+Xitong::Xitong()/*ÀûÓÃ¹¹Ôìº¯Êı¶ÁÈ¡ÎÄ¼ş*/
 {
     fstream fp;
     fp.open(Filename,ios::in);
     
-    if(!fp.is_open())/*æ–‡ä»¶ä¸å­˜åœ¨*/
+    if(!fp.is_open())/*ÎÄ¼ş²»´æÔÚ*/
     {
-        cout<<"æ–‡ä»¶ä¸å­˜åœ¨"<<endl;
+        cout<<"ÎÄ¼ş²»´æÔÚ"<<endl;
         this->classpointer = NULL;
         this->fileNULL = true;
         this->number = 0;
@@ -29,11 +29,11 @@ Xitong::Xitong()/*åˆ©ç”¨æ„é€ å‡½æ•°è¯»å–æ–‡ä»¶*/
         return;
     }
 
-    char ch;/*æ–‡ä»¶ä¸ºç©º*/
+    char ch;/*ÎÄ¼şÎª¿Õ*/
     fp>>ch;
     if(fp.eof())
     {
-        cout<<"æ–‡ä»¶ä¸ºç©º"<<endl;
+        cout<<"ÎÄ¼şÎª¿Õ"<<endl;
         this->classpointer = NULL;
         this->fileNULL = true;
         this->number = 0;
@@ -41,12 +41,12 @@ Xitong::Xitong()/*åˆ©ç”¨æ„é€ å‡½æ•°è¯»å–æ–‡ä»¶*/
         return;
     }
 
-    this->fileNULL = false;/*æ–‡ä»¶å­˜åœ¨æ•°æ®*/
+    this->fileNULL = false;/*ÎÄ¼ş´æÔÚÊı¾İ*/
     fp.close();
-    this->Start();/*å°†æ–‡ä»¶ä¸­çš„æ•°æ®å†™å…¥*/
+    this->Start();/*½«ÎÄ¼şÖĞµÄÊı¾İĞ´Èë*/
 }
 
-void Xitong::Start()/*å°†æ–‡ä»¶ä¸­çš„æ•°æ®å†™å…¥*/
+void Xitong::Start()/*½«ÎÄ¼şÖĞµÄÊı¾İĞ´Èë*/
 {
     fstream fp;
     string a;
@@ -57,7 +57,7 @@ void Xitong::Start()/*å°†æ–‡ä»¶ä¸­çš„æ•°æ®å†™å…¥*/
     newspace *address = new newspace[b];
     this->number = b;
     fp.open(Filename,ios::in);
-    while(getline(fp,a))/*å°†æ•°æ®ä¸€è¡Œä¸€è¡Œçš„è¯»å–*/
+    while(getline(fp,a))/*½«Êı¾İÒ»ĞĞÒ»ĞĞµÄ¶ÁÈ¡*/
     {
         newspace worker = NULL;
         istringstream record(a);
@@ -68,7 +68,7 @@ void Xitong::Start()/*å°†æ–‡ä»¶ä¸­çš„æ•°æ®å†™å…¥*/
     this->classpointer = address;
 }
 
-void Xitong::Add()/*å½•å…¥ä¸€ä¸ªæ–°æˆå‘˜*/
+void Xitong::Add()/*Â¼ÈëÒ»¸öĞÂ³ÉÔ±*/
 {
     int newsize,a;
     newsize = this->number + 1;
@@ -81,32 +81,32 @@ void Xitong::Add()/*å½•å…¥ä¸€ä¸ªæ–°æˆå‘˜*/
             address[i]=this->classpointer[i];
         }
     }
-    cout<<"è¯·è¾“å…¥ç”¨æˆ·å(æœ€å¤š15ä½): ";
+    cout<<"ÇëÊäÈëÓÃ»§Ãû(×î¶à15Î»): ";
     cin>>a1;
-    cout<<"è¯·è¾“å…¥æ€§åˆ«: ";
+    cout<<"ÇëÊäÈëĞÔ±ğ: ";
     cin>>a2;
-    cout<<"è¯·è¾“å…¥å‡ºç”Ÿå¹´æœˆ(YYYY-MM-DD): ";
+    cout<<"ÇëÊäÈë³öÉúÄêÔÂ(YYYY-MM-DD): ";
     cin>>a3;
-    cout<<"è¯·è¾“å…¥é‚®ç®±: ";
+    cout<<"ÇëÊäÈëÓÊÏä: ";
     cin>>a4;
     newspace worker = NULL;
     worker = new People(a1,a2,a3,a4,newsize);
     address[newsize-1] = worker ;
-    delete[] this->classpointer;/*é‡Šæ”¾åŸæœ‰ç©ºé—´*/
-    this->classpointer = address;/*æ›´æ”¹ç©ºé—´æŒ‡å‘*/
-    this->number = newsize;/*æ›´æ”¹äººæ•°*/
-    this->fileNULL = false;/*æ›´æ”¹æ–‡ä»¶æ˜¯å¦ä¸ºç©º*/
-    this->Wirtefile();/*ä¿å­˜æ•°æ®*/
-    cout<<"æ·»åŠ æˆåŠŸ!"<<endl;
+    delete[] this->classpointer;/*ÊÍ·ÅÔ­ÓĞ¿Õ¼ä*/
+    this->classpointer = address;/*¸ü¸Ä¿Õ¼äÖ¸Ïò*/
+    this->number = newsize;/*¸ü¸ÄÈËÊı*/
+    this->fileNULL = false;/*¸ü¸ÄÎÄ¼şÊÇ·ñÎª¿Õ*/
+    this->Wirtefile();/*±£´æÊı¾İ*/
+    cout<<"Ìí¼Ó³É¹¦!"<<endl;
 }
 
-void Xitong::Remove()/*åˆ é™¤æŒ‡å®šç”¨æˆ·*/
+void Xitong::Remove()/*É¾³ıÖ¸¶¨ÓÃ»§*/
 {
     string a;
     int newsize,b=0;
     newsize = this ->number -1;
     newspace *address  = new newspace[newsize];
-    cout<<"è¯·è¾“å…¥è¦åˆ é™¤çš„ç”¨æˆ·å: ";
+    cout<<"ÇëÊäÈëÒªÉ¾³ıµÄÓÃ»§Ãû: ";
     cin>>a;
     for(int i=0;i<this->number;i++)
     {
@@ -116,19 +116,19 @@ void Xitong::Remove()/*åˆ é™¤æŒ‡å®šç”¨æˆ·*/
             b++;
         }
     }
-    delete[] this->classpointer;/*é‡Šæ”¾åŸå †åŒºæ•°æ®*/
-    this->classpointer = address;/*å†™å…¥æ–°åœ°å€*/
-    this->number = newsize;/*ä¿®æ”¹æˆå‘˜ä¸ªæ•°*/
+    delete[] this->classpointer;/*ÊÍ·ÅÔ­¶ÑÇøÊı¾İ*/
+    this->classpointer = address;/*Ğ´ÈëĞÂµØÖ·*/
+    this->number = newsize;/*ĞŞ¸Ä³ÉÔ±¸öÊı*/
     this->Output1();
     this->Wirtefile();
-    cout<<"åˆ é™¤æˆåŠŸ!"<<endl;
+    cout<<"É¾³ı³É¹¦!"<<endl;
 }
 
-void Xitong::Fix()/*ä¿®æ”¹ç¡¬å¸æ•°*/
+void Xitong::Fix()/*ĞŞ¸ÄÓ²±ÒÊı*/
 {
     string a;
     int b;
-    cout<<"è¯·è¾“å…¥è¦ä¿®æ”¹çš„ç”¨æˆ·åå’Œè¦ä¿®æ”¹çš„ç¡¬å¸æ•°: ";
+    cout<<"ÇëÊäÈëÒªĞŞ¸ÄµÄÓÃ»§ÃûºÍÒªĞŞ¸ÄµÄÓ²±ÒÊı: ";
     cin>>a>>b; 
     for(int i=0;i<this->number;i++)
     {
@@ -141,7 +141,7 @@ void Xitong::Fix()/*ä¿®æ”¹ç¡¬å¸æ•°*/
         }
     }
 }
-void Xitong::Sort()/*æ’åº*/
+void Xitong::Sort()/*ÅÅĞò*/
 {
     for(int i=0;i<this->number;i++)
     {
@@ -150,7 +150,7 @@ void Xitong::Sort()/*æ’åº*/
             newspace worker=NULL;
             if(this->classpointer[j]->coin>=this->classpointer[j-1]->coin)
             {
-                if(this->classpointer[j]->coin>this->classpointer[j-1]->coin)/*æ¯”è¾ƒç¡¬å¸å¤§å°*/
+                if(this->classpointer[j]->coin>this->classpointer[j-1]->coin)/*±È½ÏÓ²±Ò´óĞ¡*/
                 {
                     
                     worker = this->classpointer[j];
@@ -159,7 +159,7 @@ void Xitong::Sort()/*æ’åº*/
                 }
                 else
                 {
-                   if(this->classpointer[j]->age>this->classpointer[j-1]->age)/*æ¯”è¾ƒå¹´é¾„å¤§å°*/
+                   if(this->classpointer[j]->age>this->classpointer[j-1]->age)/*±È½ÏÄêÁä´óĞ¡*/
                    {
                     worker = this->classpointer[j];
                     this->classpointer[j] = this->classpointer[j-1];
@@ -174,32 +174,32 @@ void Xitong::Sort()/*æ’åº*/
     this->Wirtefile();
 }
 
-void Xitong::Output(newspace *address)/*è¾“å‡ºä¸€ä¸ªç”¨æˆ·*/
+void Xitong::Output(newspace *address)/*Êä³öÒ»¸öÓÃ»§*/
 {
-    cout<<"$ç”¨æˆ·å: "<<(*address)->name<<endl;
-    cout<<"æ€§åˆ«: "<<(*address)->sex<<endl;
-    cout<<"å‡ºç”Ÿæ—¥æœŸ: "<<(*address)->birthday<<endl;
-    cout<<"é‚®ç®±: "<<(*address)->email<<endl;
+    cout<<"$ÓÃ»§Ãû: "<<(*address)->name<<endl;
+    cout<<"ĞÔ±ğ: "<<(*address)->sex<<endl;
+    cout<<"³öÉúÈÕÆÚ: "<<(*address)->birthday<<endl;
+    cout<<"ÓÊÏä: "<<(*address)->email<<endl;
     cout<<"UID: "<<(*address)->UID<<endl;
-    cout<<"ç¡¬å¸: "<<(*address)->coin<<endl;
-    cout<<"å¹´é¾„: "<<(*address)->age<<endl;
+    cout<<"Ó²±Ò: "<<(*address)->coin<<endl;
+    cout<<"ÄêÁä: "<<(*address)->age<<endl;
 }
 
-void Xitong::Output1()/*è¾“å‡ºæ‰€æœ‰ç”¨æˆ·*/
+void Xitong::Output1()/*Êä³öËùÓĞÓÃ»§*/
 {
     for(int i=0;i<this->number;i++)
     {
-        cout<<"$ç”¨æˆ·å: "<<this->classpointer[i]->name<<endl;
-        cout<<"æ€§åˆ«: "<<this->classpointer[i]->sex<<endl;
-       cout<<"å‡ºç”Ÿæ—¥æœŸ: "<<this->classpointer[i]->birthday<<endl;
-        cout<<"é‚®ç®±: "<<this->classpointer[i]->email<<endl;
+        cout<<"$ÓÃ»§Ãû: "<<this->classpointer[i]->name<<endl;
+        cout<<"ĞÔ±ğ: "<<this->classpointer[i]->sex<<endl;
+       cout<<"³öÉúÈÕÆÚ: "<<this->classpointer[i]->birthday<<endl;
+        cout<<"ÓÊÏä: "<<this->classpointer[i]->email<<endl;
         cout<<"UID: "<<this->classpointer[i]->UID<<endl;
-        cout<<"ç¡¬å¸: "<<this->classpointer[i]->coin<<endl;
-        cout<<"å¹´é¾„: "<<this->classpointer[i]->age<<endl;
+        cout<<"Ó²±Ò: "<<this->classpointer[i]->coin<<endl;
+        cout<<"ÄêÁä: "<<this->classpointer[i]->age<<endl;
     }
 }
 
-void Xitong::Wirtefile()/*å°†æ•°æ®å†™å…¥æ–‡ä»¶*/
+void Xitong::Wirtefile()/*½«Êı¾İĞ´ÈëÎÄ¼ş*/
 {
     fstream fp;
     int i=0;
