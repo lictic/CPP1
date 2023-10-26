@@ -60,11 +60,11 @@ People:: People(string gname,string gsex,string gbirthday,string gemail,int gUID
 }
 void People::show()
 {
-    cout<<"$ÓÃ»§Ãû: "<<this->name<<endl;
-    cout<<"ÐÔ±ð: "<<this->sex<<endl;
-    cout<<"³öÉúÈÕÆÚ: "<<this->birthday<<endl;
-    cout<<"ÓÊÏä:"<<this->email<<endl;
+    cout<<"$ç”¨æˆ·å: "<<this->name<<endl;
+    cout<<"æ€§åˆ«: "<<this->sex<<endl;
+    cout<<"å‡ºç”Ÿæ—¥æœŸ: "<<this->birthday<<endl;
+    cout<<"é‚®ç®±:"<<this->email<<endl;
     cout<<"UID: "<<this->UID<<endl;
-    cout<<"Ó²±Ò: "<<this->coin<<endl;
-    cout<<"ÄêÁä: "<<this->age<<endl;
+    cout<<"ç¡¬å¸: "<<this->coin<<endl;
+    cout<<"å¹´é¾„: "<<this->age<<endl;
 }
